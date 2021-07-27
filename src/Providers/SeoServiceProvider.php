@@ -15,15 +15,14 @@ class SeoServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/seo.php', 'seo');
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'seo');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'seo');
 
         $this->publishes([
-            dirname(__DIR__) . '/../config/seo.php' => config_path('seo.php'),
+            dirname(__DIR__) . '/../../config/seo.php' => config_path('seo.php'),
         ], 'config');
 
         $this->publishes([
-            dirname(__DIR__) . '/../resources/views' => resource_path('views/vendor/seo'),
+            dirname(__DIR__) . '/../../resources/views' => resource_path('views/vendor/seo'),
         ], 'views');
     }
 
@@ -34,10 +33,7 @@ class SeoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(
-            dirname(__DIR__) . '/../config/seo.php',
-            'seo'
-        );
+        $this->mergeConfigFrom(dirname(__DIR__) . '/../../config/seo.php', 'seo');
 
         $this->app->bind(SeoService::class, function (Application $app) {
             return new SeoService;
