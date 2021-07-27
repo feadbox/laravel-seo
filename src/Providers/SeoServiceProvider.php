@@ -35,7 +35,7 @@ class SeoServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(dirname(__DIR__) . '/../config/seo.php', 'seo');
 
-        $this->app->bind(SeoService::class, function (Application $app) {
+        $this->app->singleton(SeoService::class, function () {
             return new SeoService;
         });
     }
