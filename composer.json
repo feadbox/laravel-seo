@@ -1,0 +1,13 @@
+{
+    "name": "davutkmbr/laraseo",
+    "description": "Easy SEO management for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Davut Kember",
+            "email": "davutkmbr@gmail.com"
+        }
+    ],
+    "require": {}
+}
