@@ -26,6 +26,8 @@ class SeoService
 
     protected $langs = [];
 
+    protected $images = [];
+
     public function __construct()
     {
         $this->siteName = config('seo.app.name');
@@ -45,6 +47,13 @@ class SeoService
     public function lang(string $iso, string $url): self
     {
         $this->langs[$iso] = $url;
+
+        return $this;
+    }
+
+    public function image(string $url): self
+    {
+        $this->images[] = $url;
 
         return $this;
     }
@@ -76,6 +85,7 @@ class SeoService
     {
         return array_merge($this->publicProperties(), [
             'langs' => $this->langs,
+            'images' => $this->images,
         ]);
     }
 
