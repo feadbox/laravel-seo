@@ -1,6 +1,6 @@
 <?php
 
-namespace Feadbox\Seo\Providers;
+namespace Feadbox\Seo;
 
 use Illuminate\Support\ServiceProvider;
 use Feadbox\Seo\Services\SeoService;
