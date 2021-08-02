@@ -1,10 +1,9 @@
 <?php
 
-namespace Davut\Seo\Providers;
+namespace Feadbox\Seo\Providers;
 
-use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use Davut\Seo\Services\SeoService;
+use Feadbox\Seo\Services\SeoService;
 
 class SeoServiceProvider extends ServiceProvider
 {

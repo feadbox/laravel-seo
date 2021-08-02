@@ -1,9 +1,9 @@
 <?php
 
-namespace Davut\Seo\Services;
+namespace Feadbox\Seo\Services;
 
 use Error;
-use Exception;
+use Feadbox\Seo\Exceptions\MissingPackageException;
 use Illuminate\Support\HtmlString;
 use ReflectionObject;
 use ReflectionProperty;
@@ -61,7 +61,7 @@ class SeoService
     public function useLang(): self
     {
         if (!function_exists('localize')) {
-            throw new Exception('Please install "davutkmbr/localize" package for this method.');
+            throw new MissingPackageException('Please install "feadbox/localize" package for this method.');
         }
 
         foreach (localize()->supportedLocales() as $locale) {

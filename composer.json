@@ -1,5 +1,5 @@
 {
-    "name": "davutkmbr/laravel-seo",
+    "name": "feadbox/laravel-seo",
     "description": "Easy SEO management for Laravel",
     "type": "library",
     "license": "MIT",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Davut\\Seo\\": "src"
+            "Feadbox\\Seo\\": "src"
         },
         "files": [
             "src/helpers.php"
@@ -25,7 +25,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Davut\\Seo\\Providers\\SeoServiceProvider"
+                "Feadbox\\Seo\\Providers\\SeoServiceProvider"
             ]
         }
     }
