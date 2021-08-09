@@ -8,31 +8,13 @@ use Feadbox\Seo\Services\SeoService;
 class SeoServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'seo');
-
-        $this->publishes([
-            dirname(__DIR__) . '/../config/seo.php' => config_path('seo.php'),
-        ], 'config');
-
-        $this->publishes([
-            dirname(__DIR__) . '/../resources/views' => resource_path('views/vendor/seo'),
-        ], 'views');
-    }
-
-    /**
      * Register the application services.
      *
      * @return void
      */
     public function register()
     {
-        $this->mergeConfigFrom(dirname(__DIR__) . '/../config/seo.php', 'seo');
+        $this->mergeConfigFrom(__DIR__ . '/../config/seo.php', 'seo');
 
         $this->app->singleton(SeoService::class, function () {
             return new SeoService;
@@ -40,12 +22,22 @@ class SeoServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the services provided by the provider.
+     * Bootstrap the application services.
      *
-     * @return array
+     * @return void
      */
-    public function provides()
+    public function boot()
     {
-        return [SeoService::class];
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../config/seo.php' => config_path('seo.php'),
+            ], 'config');
+
+            $this->publishes([
+                __DIR__ . '/../resources/views' => resource_path('views/vendor/seo'),
+            ], 'views');
+        }
+
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'seo');
     }
 }
