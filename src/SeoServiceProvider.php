@@ -31,11 +31,11 @@ class SeoServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../config/seo.php' => config_path('seo.php'),
-            ], 'config');
+            ], 'seo-config');
 
             $this->publishes([
                 __DIR__ . '/../resources/views' => resource_path('views/vendor/seo'),
-            ], 'views');
+            ], 'seo-views');
         }
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'seo');
