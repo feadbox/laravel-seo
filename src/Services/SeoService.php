@@ -61,7 +61,7 @@ class SeoService
     public function useLang(): self
     {
         if (!function_exists('localize')) {
-            throw new MissingPackageException('Please install "feadbox/localize" package for this method.');
+            throw new MissingPackageException('Please install "feadbox/laravel-localization" package for this method.');
         }
 
         foreach (localize()->supportedLocales() as $locale) {
