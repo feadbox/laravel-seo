@@ -4,6 +4,7 @@ namespace Feadbox\Seo;
 
 use Illuminate\Support\ServiceProvider;
 use Feadbox\Seo\Services\SeoService;
+use Illuminate\Support\Facades\Blade;
 
 class SeoServiceProvider extends ServiceProvider
 {
@@ -39,5 +40,9 @@ class SeoServiceProvider extends ServiceProvider
         }
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'seo');
+
+        Blade::directive('seo', function () {
+            return "<?php echo seo()->generate(); ?>";
+        });
     }
 }
