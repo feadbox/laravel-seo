@@ -26,3 +26,7 @@
 @foreach ($images as $image)
     <meta property="og:image" content="{{ $image }}">
 @endforeach
+
+@foreach ($schemes as $scheme)
+    <script type="application/ld+json">@json($scheme)</script>
+@endforeach

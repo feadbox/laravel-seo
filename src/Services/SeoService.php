@@ -28,6 +28,8 @@ class SeoService
 
     protected $images = [];
 
+    protected $schemes = [];
+
     public function __construct()
     {
         $this->siteName = config('seo.app.name');
@@ -81,11 +83,19 @@ class SeoService
         return new HtmlString($view);
     }
 
+    public function schema($value): self
+    {
+        $this->schemes[] = array_merge(['@context' => 'https://schema.org'], $value);
+
+        return $this;
+    }
+
     public function toArray(): array
     {
         return array_merge($this->publicProperties(), [
             'langs' => $this->langs,
             'images' => $this->images,
+            'schemes' => $this->schemes,
         ]);
     }
 
